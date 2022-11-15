@@ -4,8 +4,20 @@ import { isValidProp } from "./Utils/isValidProp.js"
 import { loadState } from "./Utils/Store.js"
 
 class AppState extends EventEmitter {
-  /** @type {import('./Models/Value').Value[]} */
-  values = loadState('values', [Value])
+  // /** @type {import('./Models/Value').Value[]} */
+  // values = loadState('values', [Value])
+
+  /** @type {import('./Models/Home').Home[]} */
+  homes = []
+
+  /** @type {import('./Models/Home').Home|null} */
+  activeHome = null
+
+  /** @type {import('./Models/Job').Job[]} */
+  jobs = []
+
+  /** @type {import('./Models/Job').Job|null} */
+  activeJob = null
 }
 
 export const appState = new Proxy(new AppState(), {
